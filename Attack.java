@@ -6,10 +6,10 @@ public class Attack {
 	private float movePoints;
 	
 	public Attack() {
-		name = "Punch";
+		name = "Base Punch";
 		force = 2.0;
 		chanceToCritical = 0.05;
-		movePoints = 2;
+		movePoints = 2.0;
 	}
 
 	public Attack(String name, float force, float movePoints) {
@@ -30,8 +30,8 @@ public class Attack {
 		return movePoints >= pokemon.getEnergy();
 	}
 	
-	public float makeDamage() {
-		return (Math.random() < 0.05) ? 2 * force : force;
+	public float makeDamage(Pokemon pokemon) {
+		return (Math.random() < chanceToCritical) ? 2 * force : force;
 	}
 	
 	public void setChanceToCritical(float chanceToCritical) { this.chanceToCritical = chanceToCritical; }
